@@ -8,4 +8,4 @@
 3. Go to https://github.com/settings/tokens and create a new token.
 4. In the root directory, create an ".env" file.
 5.  Write "VITE_API_KEY=YOUR_TOKEN" in the file.
-6. Run the app with the `npm run start` command.
+6. Run the app with the `npm run dev` command.
