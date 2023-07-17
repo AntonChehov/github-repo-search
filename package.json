@@ -5,7 +5,7 @@
   "homepage": "https://github.com/AntonChehov/github-repo-search",
   "type": "module",
   "scripts": {
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "test": "playwright test ./e2e",
     "build": "tsc && vite build",
