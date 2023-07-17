@@ -1,0 +1,12 @@
+:global(.root) {
+	--header: #1f2328;
+	--error: #cf1b1b;
+	--loading: #0969da;
+	--text: #0e293f;
+	--link: #0969da;
+	--link-hover: #e02424;
+	--link-visited: #a82121;
+
+	height: 90%;
+	width: 50%;
+}
