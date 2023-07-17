@@ -9,3 +9,4 @@
 4. In the root directory, create an ".env" file.
 5.  Write "VITE_API_KEY=YOUR_TOKEN" in the file.
 6. Run the app with the `npm run dev` command.
+7. Run the tests with the `npm test` command.
