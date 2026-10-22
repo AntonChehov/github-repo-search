@@ -1,4 +1,4 @@
-import { ReactElement, useContext, useState } from "react";
+import { ReactElement, useContext, useState } from 'react';
 
 import * as styles from './search.module.css';
 import SearchContext from '../context';

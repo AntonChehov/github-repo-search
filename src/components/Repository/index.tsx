@@ -1,9 +1,9 @@
-import { ReactElement } from "react";
-import { NavLink } from "react-router-dom";
+import { ReactElement } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { IRepos } from './interfaces';
-import { stringifyDate } from '../../utils/stringifyDate';
 import * as styles from './repository.module.css';
+import { stringifyDate } from '../../utils/stringifyDate';
 
 export default function Repos({ repos }: IRepos): ReactElement {
   return (
@@ -22,11 +22,11 @@ export default function Repos({ repos }: IRepos): ReactElement {
             <td className={styles.name}>
               <NavLink to={repo.id}>{repo.name}</NavLink>
             </td>
-            <td className={styles.star}>{repo.stargazers.totalCount || "0"}</td>
+            <td className={styles.star}>{repo.stargazers.totalCount || '0'}</td>
             <td className={styles.commit}>
               {repo.defaultBranchRef
                 ? stringifyDate(repo.defaultBranchRef.target.committedDate)
-                : "none"}
+                : 'none'}
             </td>
             <td className={styles.link}>
               <a href={repo.url} target="_blank" rel="noreferrer">

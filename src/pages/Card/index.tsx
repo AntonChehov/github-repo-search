@@ -1,15 +1,16 @@
-import { ReactElement } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { ReactElement } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
 
-import { useQuery as getQuery } from "@apollo/client";
+import { useQuery as getQuery } from '@apollo/client';
 
 import { GET_INFO } from './card.graphql';
 import * as styles from './card.module.css';
+import { IRepoInfo } from './interfaces';
 import { stringifyDate } from '../../utils/stringifyDate';
 
 export default function Card(): ReactElement {
   const { id } = useParams();
-  const { loading, error, data } = getQuery<Record<string, any>>(GET_INFO, {
+  const { loading, error, data } = getQuery<IRepoInfo>(GET_INFO, {
     variables: {
       getId: `${id}`,
     },
@@ -30,13 +31,10 @@ export default function Card(): ReactElement {
       </h1>
       <small>Stars -{data.node.stargazers.totalCount}</small>
       <br />
-      <small>
-        Last commit -
-        {stringifyDate(data.node.defaultBranchRef.target.committedDate)}
-      </small>
+      <small>Last commit -{stringifyDate(data.node.defaultBranchRef.target.committedDate)}</small>
       <br />
       <small>
-        Author -{" "}
+        Author -{' '}
         <a className={styles.name} href={data.node.owner.url}>
           {data.node.owner.login}
         </a>
@@ -51,7 +49,7 @@ export default function Card(): ReactElement {
       {!!data.node.languages.nodes.length && (
         <ul className={styles.language}>
           Used languages:
-          {data.node.languages.nodes.map((language: Record<string, any>) => (
+          {data.node.languages.nodes.map((language) => (
             <li key={language.name}>{language.name}</li>
           ))}
         </ul>

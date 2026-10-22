@@ -1,20 +1,15 @@
-import { ReactElement } from "react";
-import { IPaginator } from "./interfaces";
-import * as styles from "./paginator.module.css";
+import { ReactElement } from 'react';
 
-export default function Paginator({
-  pages,
-  currentPage,
-  setPage,
-}: IPaginator): ReactElement {
+import { IPaginator } from './interfaces';
+import * as styles from './paginator.module.css';
+
+export default function Paginator({ pages, currentPage, setPage }: IPaginator): ReactElement {
   return (
     <ul className={styles.ul}>
       {Array.from({ length: pages }, (_, i) => i + 1).map((pageNum) => (
         <li
           key={pageNum}
-          className={`${styles.li} ${
-            pageNum === currentPage ? styles.li__active : ""
-          }`}
+          className={`${styles.li} ${pageNum === currentPage ? styles.li__active : ''}`}
         >
           <a
             className={styles.a}
