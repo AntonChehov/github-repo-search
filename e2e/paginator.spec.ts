@@ -7,6 +7,9 @@ let page: Page;
 test.beforeEach(async () => {
   browser = await chromium.launch();
   page = await browser.newPage();
+  await page.addInitScript((token) => {
+    sessionStorage.setItem('githubToken', token);
+  }, process.env.GITHUB_TOKEN ?? '');
 });
 
 test.afterEach(async () => {

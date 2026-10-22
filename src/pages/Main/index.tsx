@@ -71,7 +71,7 @@ export default function Main() {
 
   const renderRepos = () => {
     if (!pages || pages.count === 0) {
-      return <p>No repositories found.</p>;
+      return <p className={styles.empty}>No repositories found.</p>;
     }
 
     return (

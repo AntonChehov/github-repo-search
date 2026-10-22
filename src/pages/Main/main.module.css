@@ -1,8 +1,19 @@
 .h3 {
+	margin: 32px 0;
 	text-align: center;
+	font-weight: normal;
 	color: var(--loading);
 }
 
 .h2_error {
+	margin: 0;
+	font-size: 18px;
 	color: var(--error);
+	overflow-wrap: anywhere;
+}
+
+.empty {
+	margin: 32px 0;
+	text-align: center;
+	color: var(--muted);
 }

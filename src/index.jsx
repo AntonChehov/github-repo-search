@@ -1,15 +1,25 @@
 import { createRoot } from "react-dom/client";
 
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
 import App from "./components/App";
+import { getToken } from "./utils/token";
 import "../index.css";
 
-const client = new ApolloClient({
+const httpLink = createHttpLink({
 	uri: "https://api.github.com/graphql",
+});
+
+const authLink = setContext((_, { headers }) => ({
 	headers: {
-		authorization: `Bearer ${process.env.VITE_API_KEY}`,
+		...headers,
+		authorization: `Bearer ${getToken()}`,
 	},
+}));
+
+const client = new ApolloClient({
+	link: authLink.concat(httpLink),
 	cache: new InMemoryCache(),
 });
 

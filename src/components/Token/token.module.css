@@ -1,0 +1,12 @@
+.token__hint {
+	margin: 0 0 20px;
+	color: var(--muted);
+}
+
+.token__hint a {
+	color: var(--link);
+}
+
+.token__hint a:hover {
+	color: var(--link-hover);
+}

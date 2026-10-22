@@ -1,83 +1,110 @@
-.h1 {
-	margin-bottom: 5px;
-}
-
-.h1 a {
-	color: var(--header);
-}
-
 .h2_error {
+	margin: 0;
+	font-size: 18px;
 	color: var(--error);
+	overflow-wrap: anywhere;
 }
 
 .h3 {
+	margin: 32px 0;
 	text-align: center;
+	font-weight: normal;
 	color: var(--loading);
 }
 
 .article {
-	position: relative;
 	color: var(--text);
 }
 
-.face {
-	position: absolute;
-	top: 30px;
-	right: 0;
-	width: 160px;
-	text-align: center;
-	z-index: -10;
+.back {
+	display: inline-block;
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: var(--link);
+	text-decoration: none;
 }
 
-.face img {
-	width: 100%;
+.back:hover {
+	color: var(--link-hover);
+	text-decoration: underline;
 }
 
-@media (max-width: 480px) {
-	.face {
-		top: 26px;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-	}
-
-	.face img {
-		opacity: 0.1;
-	}
+.header {
+	display: flex;
+	align-items: center;
+	gap: 16px;
 }
 
-.description,
-p {
-	width: 300px;
+.avatar {
+	width: 64px;
+	height: 64px;
+	flex-shrink: 0;
+	border: 1px solid var(--border);
+	border-radius: 50%;
 }
 
-.language {
+.title {
+	margin: 0;
+	font-size: 24px;
+	line-height: 1.25;
+	overflow-wrap: anywhere;
+}
+
+.title a {
+	color: var(--header);
+	text-decoration: none;
+}
+
+.title a:hover,
+.name:hover {
+	color: var(--link-hover);
+	text-decoration: underline;
+}
+
+.name {
+	font-size: 14px;
+	color: var(--muted);
+	text-decoration: none;
+}
+
+.meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 20px;
+	margin: 20px 0 0;
+	padding: 0;
+	list-style: none;
+	font-size: 14px;
+	color: var(--muted);
+}
+
+.description {
+	margin: 20px 0 0;
+}
+
+.subtitle {
+	margin: 24px 0 8px;
+	font-size: 14px;
 	color: var(--header);
 }
 
-.language li {
-	color: var(--text);
+.languages {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
-.name,
-.back {
-	color: var(--link);
+.languages li {
+	padding: 2px 10px;
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	font-size: 13px;
+	background: var(--surface-hover);
 }
 
-.name:hover,
-.h1 a:hover,
-.back:hover {
-	color: var(--link-hover);
-}
-
-.name:visited {
-	color: var(--link-visited);
-}
-
-.back {
-	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 0.9rem;
+.star {
+	color: #bf8700;
 }

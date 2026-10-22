@@ -1,16 +1,19 @@
-body {
-	background-color: #ffffff;
-	font: 16px/20px Arial, sans-serif;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 95vh;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
-@media (max-height: 400px) {
+body {
+	margin: 0;
+	padding: 48px 16px;
+	min-height: 100vh;
+	background-color: #f6f8fa;
+	font: 16px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+@media (max-width: 480px) {
 	body {
-		height: auto;
-		margin-top: 20px;
+		padding: 24px 12px;
 	}
 }

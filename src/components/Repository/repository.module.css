@@ -1,11 +1,14 @@
 .table {
 	width: 100%;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
+	border-collapse: collapse;
 	color: var(--text);
+	font-size: 15px;
 }
 
 .table a {
 	color: var(--link);
+	text-decoration: none;
 }
 
 .table a:visited {
@@ -14,30 +17,55 @@
 
 .table a:hover {
 	color: var(--link-hover);
+	text-decoration: underline;
 }
 
 .thead {
-	color: var(--header);
-	font-size: 18px;
+	color: var(--muted);
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.thead th {
+	font-weight: 600;
+	text-align: left;
 }
 
 .table tr {
 	display: flex;
 	justify-content: space-between;
+	padding: 10px 12px;
+	border-bottom: 1px solid var(--border);
 }
 
-.tbody tr td:not(:first-child) {
+.tbody tr:last-child {
+	border-bottom: none;
+}
+
+.tbody tr:hover {
+	background: var(--surface-hover);
+}
+
+.tbody tr td:not(:first-child),
+.thead th:not(:first-child) {
 	text-align: right;
 }
 
 .name {
 	flex-grow: 1;
 	margin-right: 10px;
+	font-weight: 600;
 	overflow-wrap: anywhere;
 }
 
+.tbody .star::before {
+	content: '★ ';
+	color: #bf8700;
+}
+
 .star {
-	width: 65px;
+	width: 80px;
 	flex-shrink: 0;
 }
 
@@ -45,10 +73,11 @@
 	width: 110px;
 	flex-shrink: 0;
 	margin-left: 10px;
+	color: var(--muted);
 }
 
 .link {
-	width: 65px;
+	width: 75px;
 	flex-shrink: 0;
 	margin-left: 10px;
 }

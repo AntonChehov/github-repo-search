@@ -26,38 +26,47 @@ export default function Card(): ReactElement {
 
   return data ? (
     <article className={styles.article}>
-      <h1 className={styles.h1}>
-        <a href={data.node.url}>{data.node.name}</a>
-      </h1>
-      <small>Stars -{data.node.stargazers.totalCount}</small>
-      <br />
-      <small>Last commit -{stringifyDate(data.node.defaultBranchRef.target.committedDate)}</small>
-      <br />
-      <small>
-        Author -{' '}
-        <a className={styles.name} href={data.node.owner.url}>
-          {data.node.owner.login}
-        </a>
-      </small>
+      <NavLink className={styles.back} to="/">
+        ← Back to search
+      </NavLink>
 
-      <div className={styles.face}>
-        <img src={data.node.owner.avatarUrl} alt="repo pic" />
+      <div className={styles.header}>
+        <img
+          className={styles.avatar}
+          src={data.node.owner.avatarUrl}
+          alt={`${data.node.owner.login} avatar`}
+        />
+        <div>
+          <h2 className={styles.title}>
+            <a href={data.node.url} target="_blank" rel="noreferrer">
+              {data.node.name}
+            </a>
+          </h2>
+          <a className={styles.name} href={data.node.owner.url} target="_blank" rel="noreferrer">
+            {data.node.owner.login}
+          </a>
+        </div>
       </div>
 
-      <p className={styles.description}>{data.node.description}</p>
+      <ul className={styles.meta}>
+        <li>
+          <span className={styles.star}>★</span> {data.node.stargazers.totalCount} stars
+        </li>
+        <li>Last commit: {stringifyDate(data.node.defaultBranchRef.target.committedDate)}</li>
+      </ul>
+
+      {data.node.description && <p className={styles.description}>{data.node.description}</p>}
 
       {!!data.node.languages.nodes.length && (
-        <ul className={styles.language}>
-          Used languages:
-          {data.node.languages.nodes.map((language) => (
-            <li key={language.name}>{language.name}</li>
-          ))}
-        </ul>
+        <>
+          <h3 className={styles.subtitle}>Languages</h3>
+          <ul className={styles.languages}>
+            {data.node.languages.nodes.map((language) => (
+              <li key={language.name}>{language.name}</li>
+            ))}
+          </ul>
+        </>
       )}
-
-      <NavLink className={styles.back} to="/">
-        back to search
-      </NavLink>
     </article>
   ) : (
     <h2 className={styles.h2_error}>Could not resolve to a node</h2>
